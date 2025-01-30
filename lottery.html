@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lottery Ticket</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script> 
+</head>
+<body>
+  <div class="container">
+    <h1>LOTTERY WINNER:</h1><br>
+    <input type="submit" value="Select Winner" id="selectWinner" class="btn btn-primary" onclick="selectWinner()" data-toggle="modal" data-target="#myModal1">
+  </div>
+  <div class="modal" id="myModal1">
+    <div class="modal-dialog  modal-dialog-scrollable ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title">Lottery Winner:</h1>
+          <button type="button" class="close" data-dismiss="modal">×</button>
+        </div>
+        <div class="modal-body">
+          <h4>Winning Number</h4>
+  <p id="Winner"> </p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <p id="lotn" class="container"> </p>
+  <script type="text/javascript">
+     function selectWinner()
+     {
+      const array = [5,25,99,1,48,72,65];
+      const winnerNumber = array[Math.floor(Math.random() * array.length ) ];
+      document.getElementById("Winner").innerText=( winnerNumber );
+      console.log("winner:" + winnerNumber);
+      document.getElementById("lotn").innerText=(winnerNumber);
+      document.getElementById("lotn").style.color="red";
+     }
+  </script>
+
+
+</body>
+</html>

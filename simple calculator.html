@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Simple Calculator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+      background-color: #f4f4f4;
+    }
+    h1 {
+      color: #333;
+    }
+    .calculator {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: inline-block;
+    }
+    input, select, button {
+      padding: 10px;
+      margin: 10px;
+      font-size: 18px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      border: none;
+    }
+    button:hover {
+      background-color: #218838;
+    }
+    #result {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>Simple Calculator</h1>
+<div class="calculator">
+  <input type="number" id="num1" placeholder="Enter The First Number">
+  <select id="operator">
+    <option value="+">+</option>
+    <option value="-">-</option>
+    <option value="*">*</option>
+    <option value="/">/</option> 
+  </select>
+  <input type="number" id="num2" placeholder="Enter The Second Number">
+  <button onclick="calculate()">=</button>
+  <p id="result"></p>
+</div>
+
+<script>
+  function calculate() {
+    let num1 = parseFloat(document.getElementById('num1').value);
+    let num2 = parseFloat(document.getElementById('num2').value);
+    let operator = document.getElementById('operator').value;
+    let result;
+
+    if (isNaN(num1) || isNaN(num2)) {
+      result = "Please enter valid numbers!";
+    } else {
+      switch (operator) {
+        case '+':
+          result = num1 + num2;
+          break;
+        case '-':
+          result = num1 - num2;
+          break;
+        case '*':
+          result = num1 * num2;
+          break;
+        case '/':
+          result = num2 !== 0 ? num1 / num2 : "Cannot divide by zero!";
+          break;
+        default:
+          result = "Invalid operation!";
+      }
+    }
+    
+    document.getElementById('result').innerText = `Result: ${result}`;
+  }
+</script>
+
+</body>
+</html>
